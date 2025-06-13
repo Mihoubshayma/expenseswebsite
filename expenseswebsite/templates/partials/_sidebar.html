@@ -1,0 +1,95 @@
+{% load static %}
+
+<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+
+
+
+
+
+    
+    <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        
+      <div class="offcanvas-header">
+        
+        
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        
+      </div>
+
+
+
+      
+      <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+
+
+        
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{% url 'stats'%}">
+              <svg class="bi" aria-hidden="true"></svg>
+              Dashboard
+            </a>
+          </li>
+               <!-- Formulaire de recherche -->
+      <form class="d-flex" role="search" method="get">
+        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" name="q">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+      </form>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'stats'%}">
+              
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'expenses'%}">
+              Expenses
+            </a>
+          </li>
+    
+
+
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+          <span>SUMMURY </span>
+
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-auto">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'stats'%}">
+              <svg class="bi" aria-hidden="true"><use xlink:href="#file-earmark-text"/></svg>
+              Expenses Summary 
+            </a>
+          </li>
+
+          
+        </ul>
+
+        <hr class="my-3">
+
+        <ul class="nav flex-column mb-auto">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <svg class="bi" aria-hidden="true"><use xlink:href="#gear-wide-connected"/></svg>
+              Settings
+            </a>
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method="POST" style="width: 100%;">
+                {% csrf_token %}
+                <button type="submit" class="nav-link d-flex align-items-center gap-2">
+                  <svg class="bi" color="black" aria-hidden="true" width="20" height="20" fill="currentColor" aria-hidden="true" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v8A1.5 1.5 0 0 0 3.5 13h6a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                  </svg>
+                  Sign Out
+                </button>
+              </form>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+

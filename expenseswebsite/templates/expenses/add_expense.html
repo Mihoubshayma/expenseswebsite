@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'expenses' %}">Expenses</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Add Expense</li>
+        </ol>
+      </nav>
+
+      <div class="card shadow-sm rounded">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Add New Expense</h5>
+        </div>
+
+        <div class="card-body">
+          <form action="{% url 'add-expense' %}" method="post">
+            {% include 'partials/_messages.html' %}
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount</label>
+              <input
+                type="text"
+                id="amount"
+                class="form-control"
+                name="amount"
+                value="{{ value.amount }}"
+                placeholder="Enter amount"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input
+                type="text"
+                id="description"
+                class="form-control"
+                name="description"
+                value="{{ value.description }}"
+                placeholder="Enter description"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select id="category" class="form-select" name="category" required>
+                <option selected disabled>Choose category</option>
+                {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="expense_date" class="form-label">Date of Expense</label>
+              <input
+                type="date"
+                id="expense_date"
+                class="form-control"
+                name="expense_date"
+                required
+              />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

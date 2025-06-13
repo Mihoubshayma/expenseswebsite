@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Register{% endblock %}</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/color-modes.js' %}"></script>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+</head>
+<body>
+    <main role="main">
+    <!-- Ici, tu peux ajouter ton formulaire d'inscription ou étendre un template de base -->
+    {% block content %}
+    <h1>Register</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Tes champs de formulaire ici -->
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+    {% endblock %}
+    </main>
+</body>
+</html>
